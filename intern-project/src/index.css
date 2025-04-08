@@ -1,4 +1,4 @@
-#root{
+/* #root{
     width: 80%;
 }
 body {
@@ -57,24 +57,29 @@ body {
     list-style-type: none;
     padding: 0;
     margin-top: 20px;
+    text-align: center;
   }
   
   li {
     background-color: #fafafa;
-    margin-bottom: 10px;
+    margin:0 auto;
     padding: 10px;
     border-radius: 4px;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
+    width: 60%;
   }
-  
+  li span{
+    display: inline-block;
+    width:50%;
+    text-align: left;
+  }
   li button {
     background-color: #f44336;
     padding: 5px 10px;
     font-size: 14px;
     border-radius: 4px;
     cursor: pointer;
+    margin: 0 10px;
   }
   
   li button:hover {
@@ -86,4 +91,22 @@ body {
     border-color: #4CAF50;
     outline: none;
   }
+
+  @media screen and (max-width: 1020px){
+    li span{
+      display: block;
+    }
+  }
+  @media screen and (max-width: 600px){
+    li span{
+      width:100%;
+    }
+  }
+  @media screen and (max-width: 530px){
+    li button{
+      display:block;
+      margin: 10px auto;
+    }
+  }
   
+   */
