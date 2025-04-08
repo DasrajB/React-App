@@ -3,6 +3,8 @@ import 'devextreme/dist/css/dx.light.css'
 import {Link} from 'react-router-dom';
 import Form from './Form'
 import TableForm from "./tableForm";
+import axios from 'axios'
+import Logout from "./Logout";
 export default function Home(){  
     const [tasks, setTask] = useState([]);
     const [taskInput, setTaskInput] = useState('');
@@ -15,24 +17,18 @@ export default function Home(){
         setTask(JSON.parse(data))
         setLoading(false)
       } else {
-        const fetchData = async ()=>{
-          try{
-            const response = await fetch("https://jsonplaceholder.typicode.com/todos?_limit=5")
-            const result = await response.json()
-            const todos = result.map(todo=>({
-              id: todo.id,
-              text: todo.title,
-              completed: todo.completed ? "completed":"pending"
-            }))
-            setTask(todos)
-          } catch(error){
-            console.error(error.message)
-          } finally{
-            setLoading(false)
-          }
-        };
+        axios.get('https://jsonplaceholder.typicode.com/todos?_limit=5')
+        .then((response)=>{
+          const data = response.data
+          setLoading(false)
 
-        fetchData()
+          const todos = data.map((todo)=>({
+            id: todo.id,
+            text: todo.title,
+            completed: todo.completed ? "completed" : "pending"
+          }))
+          setTask(todos)
+        })
       }
 
     }, [])
@@ -43,6 +39,7 @@ export default function Home(){
     }, [tasks])
    
     if(loading) return <p>Loading tasks...</p>
+
     const addTask = (e) => {
       e.preventDefault()
       if (taskInput) {
@@ -60,7 +57,7 @@ export default function Home(){
     const completeTask = (id) => {
       setTask(
         tasks.map((task) =>
-          task.id === id ? { ...task, completed:"pending"?"completed":"pending" } : task
+          task.id === id ? { ...task, completed: task.completed === "pending" ? "completed":"pending" } : task
         )
       );
     };
@@ -81,6 +78,7 @@ export default function Home(){
     
     return (
       <>
+
       <Form setTaskInput={setTaskInput} taskInput={taskInput} inputRef={inputRef} addTask={addTask}/>
         {tasks.length === 0 ? (
           <p>No Tasks Left</p>
@@ -108,7 +106,7 @@ export default function Home(){
 
         )}
         <Link to="/about" style={{textDecoration: "none"}}>
-        <p style={{backgroundColor: "black", color:"white", display:"inline", padding:"10px", borderRadius:"5px"}}>What does this app do?</p>
+        <p id="about">What does this app do?</p>
         </Link>
       </>
     );

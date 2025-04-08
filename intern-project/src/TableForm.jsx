@@ -14,6 +14,8 @@ export default function TableForm({tasks, completeTask, editTask, deleteTask}){
 return <div>
 
 <SelectBox items={statusOptions} placeholder="Filter by Status" onValueChanged={(e)=>{setFilterStatus(e.value)}} value={filterStatus}/>
+<div className="my-container">
+
 <DataGrid dataSource={filteredTasks}>
 <Column dataField="id" caption="ID"/>
 <Column dataField="text" caption="Task"/>
@@ -21,7 +23,7 @@ return <div>
  />
 <Column
 cellRender={({data})=>(<>
-<Button text="Complete" onClick={() => completeTask(data.id)}/>
+<Button text={data.completed === "pending"? "Complete" : "Redo"} onClick={() => completeTask(data.id)}/>
 <Button text="Edit" onClick={() => editTask(data.id)}/>
 <Button text="Delete" onClick={() => deleteTask(data.id)}/>
 </>
@@ -29,5 +31,6 @@ cellRender={({data})=>(<>
  />
 
 </DataGrid>
+</div>
 </div>
 }
