@@ -1,112 +1,67 @@
-/* #root{
-    width: 80%;
+body{
+  font-family:"Helvetica Neue", "Segoe UI", helvetica, verdana, sans-serif; ;
 }
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  div {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 300px;
-    text-align: center;
-    margin: 0 auto;
-  }
 
-  h2 {
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
+/* Customize grid headers */
+.dx-datagrid .dx-header-row {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
 
-  input {
-    width: 80%;
-    padding: 10px;
+/* Customize data rows */
+.dx-datagrid .dx-data-row {
+  background-color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+.dx-datagrid .dx-data-row:hover {
+  background-color: #f0f0f0;
+}
+
+.dx-button {
+  background-color: #007bff;
+  color: white;
+}
+/* Customize dropdown */
+.dx-selectbox {
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+/* Style dropdown items */
+.dx-dropdown-content .dx-dropdown-item {
+  padding: 10px;
+  font-size: 14px;
+}
+
+.dx-dropdown-content .dx-dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+.btn{
+  background-color:#392983;
+   color: white;
     font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 10px;
-  }
-  
-  button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 15px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
+    padding: 5px 12px;
+    margin-left: 5px; 
+    border:none; 
+    border-radius: 4px; 
     cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin-top: 20px;
-    text-align: center;
-  }
-  
-  li {
-    background-color: #fafafa;
-    margin:0 auto;
-    padding: 10px;
-    border-radius: 4px;
-    align-items: center;
-    width: 60%;
-  }
-  li span{
-    display: inline-block;
-    width:50%;
-    text-align: left;
-  }
-  li button {
-    background-color: #f44336;
-    padding: 5px 10px;
-    font-size: 14px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin: 0 10px;
-  }
-  
-  li button:hover {
-    background-color: #d32f2f;
-  }
-  
-
-  input:focus {
-    border-color: #4CAF50;
-    outline: none;
-  }
-
-  @media screen and (max-width: 1020px){
-    li span{
-      display: block;
-    }
-  }
-  @media screen and (max-width: 600px){
-    li span{
-      width:100%;
-    }
-  }
-  @media screen and (max-width: 530px){
-    li button{
-      display:block;
-      margin: 10px auto;
-    }
-  }
-  
-   */
+}
+.btn:hover{
+  background-color: #433099;
+}
+#about{
+  background-color:black; 
+  color:white;
+  display:block;
+  padding:10px;
+  border-radius:5px;
+  margin:10px auto;
+  text-align: center;
+  width: 50%;
+  transition: border 3s ease-in;
+}
+#about:hover{
+  background-color: rgb(69, 66, 66);
+  color: rgb(237, 227, 227);
+}

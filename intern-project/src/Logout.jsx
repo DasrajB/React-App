@@ -12,6 +12,6 @@ export default function Logout(){
         return <Navigate to="/login"/>
     }
     return <>
-    <button onClick={handleLogout}>LogOut</button>
+    <button onClick={handleLogout} className="btn" style={{display: "block",margin: "5px auto"}}>LogOut</button>
     </>
 }
